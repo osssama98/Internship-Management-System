@@ -1,0 +1,210 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="db_internshipModelStoreContainer" CdmEntityContainer="db_internshipEntities1">
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="db_internshipModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_application">
+      <EntityTypeMapping TypeName="db_internshipModel.tbl_application">
+        <MappingFragment StoreEntitySet="tbl_application">
+          <ScalarProperty Name="ap_studentdepartment" ColumnName="ap_studentdepartment" />
+          <ScalarProperty Name="ap_applicationid" ColumnName="ap_applicationid" />
+          <ScalarProperty Name="ap_internshiptype" ColumnName="ap_internshiptype" />
+          <ScalarProperty Name="ap_companyname" ColumnName="ap_companyname" />
+          <ScalarProperty Name="ap_companyaddress" ColumnName="ap_companyaddress" />
+          <ScalarProperty Name="ap_companyphonenumber" ColumnName="ap_companyphonenumber" />
+          <ScalarProperty Name="ap_companymail" ColumnName="ap_companymail" />
+          <ScalarProperty Name="ap_startingdate" ColumnName="ap_startingdate" />
+          <ScalarProperty Name="ap_enddate" ColumnName="ap_enddate" />
+          <ScalarProperty Name="ap_workingday" ColumnName="ap_workingday" />
+          <ScalarProperty Name="ap_documentbycompany" ColumnName="ap_documentbycompany" />
+          <ScalarProperty Name="ap_managername" ColumnName="ap_managername" />
+          <ScalarProperty Name="ap_managerlastname" ColumnName="ap_managerlastname" />
+          <ScalarProperty Name="ap_managermail" ColumnName="ap_managermail" />
+          <ScalarProperty Name="ap_managertitle" ColumnName="ap_managertitle" />
+          <ScalarProperty Name="ap_status" ColumnName="ap_status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_department">
+      <EntityTypeMapping TypeName="db_internshipModel.tbl_department">
+        <MappingFragment StoreEntitySet="tbl_department">
+          <ScalarProperty Name="d_departmentid" ColumnName="d_departmentid" />
+          <ScalarProperty Name="d_departmentname" ColumnName="d_departmentname" />
+          <ScalarProperty Name="d_facultyname" ColumnName="d_facultyname" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_internship">
+      <EntityTypeMapping TypeName="db_internshipModel.tbl_internship">
+        <MappingFragment StoreEntitySet="tbl_internship">
+          <ScalarProperty Name="i_studentdepartment" ColumnName="i_studentdepartment" />
+          <ScalarProperty Name="i_internshipid" ColumnName="i_internshipid" />
+          <ScalarProperty Name="i_internshiptype" ColumnName="i_internshiptype" />
+          <ScalarProperty Name="i_companyname" ColumnName="i_companyname" />
+          <ScalarProperty Name="i_companyaddress" ColumnName="i_companyaddress" />
+          <ScalarProperty Name="i_companyphonenumber" ColumnName="i_companyphonenumber" />
+          <ScalarProperty Name="i_companymail" ColumnName="i_companymail" />
+          <ScalarProperty Name="i_startingdate" ColumnName="i_startingdate" />
+          <ScalarProperty Name="i_enddate" ColumnName="i_enddate" />
+          <ScalarProperty Name="i_workingday" ColumnName="i_workingday" />
+          <ScalarProperty Name="i_documentbycompany" ColumnName="i_documentbycompany" />
+          <ScalarProperty Name="i_managername" ColumnName="i_managername" />
+          <ScalarProperty Name="i_managerlastname" ColumnName="i_managerlastname" />
+          <ScalarProperty Name="i_managermail" ColumnName="i_managermail" />
+          <ScalarProperty Name="i_managertitle" ColumnName="i_managertitle" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_report">
+      <EntityTypeMapping TypeName="db_internshipModel.tbl_report">
+        <MappingFragment StoreEntitySet="tbl_report">
+          <ScalarProperty Name="r_departmentid" ColumnName="r_departmentid" />
+          <ScalarProperty Name="r_internshipid" ColumnName="r_internshipid" />
+          <ScalarProperty Name="r_id" ColumnName="r_id" />
+          <ScalarProperty Name="r_studennumber" ColumnName="r_studennumber" />
+          <ScalarProperty Name="r_reportloc" ColumnName="r_reportloc" />
+          <ScalarProperty Name="r_date" ColumnName="r_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_student">
+      <EntityTypeMapping TypeName="db_internshipModel.tbl_student">
+        <MappingFragment StoreEntitySet="tbl_student">
+          <ScalarProperty Name="s_studentnumber" ColumnName="s_studentnumber" />
+          <ScalarProperty Name="s_userid" ColumnName="s_userid" />
+          <ScalarProperty Name="s_name" ColumnName="s_name" />
+          <ScalarProperty Name="s_lastname" ColumnName="s_lastname" />
+          <ScalarProperty Name="s_departmentid" ColumnName="s_departmentid" />
+          <ScalarProperty Name="s_internid" ColumnName="s_internid" />
+          <ScalarProperty Name="s_studyyear" ColumnName="s_studyyear" />
+          <ScalarProperty Name="s_semester" ColumnName="s_semester" />
+          <ScalarProperty Name="s_address" ColumnName="s_address" />
+          <ScalarProperty Name="s_advisorname" ColumnName="s_advisorname" />
+          <ScalarProperty Name="s_advisorid" ColumnName="s_advisorid" />
+          <ScalarProperty Name="s_idnumber" ColumnName="s_idnumber" />
+          <ScalarProperty Name="s_nationality" ColumnName="s_nationality" />
+          <ScalarProperty Name="s_dateofbirth" ColumnName="s_dateofbirth" />
+          <ScalarProperty Name="s_photo" ColumnName="s_photo" />
+          <ScalarProperty Name="s_internid2" ColumnName="s_internid2" />
+          <ScalarProperty Name="s_applicationid" ColumnName="s_applicationid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_user">
+      <EntityTypeMapping TypeName="db_internshipModel.tbl_user">
+        <MappingFragment StoreEntitySet="tbl_user">
+          <ScalarProperty Name="u_userid" ColumnName="u_userid" />
+          <ScalarProperty Name="u_username" ColumnName="u_username" />
+          <ScalarProperty Name="u_password" ColumnName="u_password" />
+          <ScalarProperty Name="u_mail" ColumnName="u_mail" />
+          <ScalarProperty Name="u_authorizationtype" ColumnName="u_authorizationtype" />
+          <ScalarProperty Name="u_lastverificationcode" ColumnName="u_lastverificationcode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_academician">
+      <EntityTypeMapping TypeName="db_internshipModel.tbl_academician">
+        <MappingFragment StoreEntitySet="tbl_academician">
+          <ScalarProperty Name="a_userid" ColumnName="a_userid" />
+          <ScalarProperty Name="a_lastname" ColumnName="a_lastname" />
+          <ScalarProperty Name="a_name" ColumnName="a_name" />
+          <ScalarProperty Name="a_departmentid" ColumnName="a_departmentid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="insertnewacademician" FunctionName="db_internshipModel.Store.insertnewacademician" />
+    <FunctionImportMapping FunctionImportName="insertnewapplication" FunctionName="db_internshipModel.Store.insertnewapplication" />
+    <FunctionImportMapping FunctionImportName="insertnewdepartment" FunctionName="db_internshipModel.Store.insertnewdepartment" />
+    <FunctionImportMapping FunctionImportName="insertnewinternship" FunctionName="db_internshipModel.Store.insertnewinternship" />
+    <FunctionImportMapping FunctionImportName="insertnewstudent" FunctionName="db_internshipModel.Store.insertnewstudent" />
+    <FunctionImportMapping FunctionImportName="insertnewstudent2" FunctionName="db_internshipModel.Store.insertnewstudent2" />
+    <FunctionImportMapping FunctionImportName="insertnewuser" FunctionName="db_internshipModel.Store.insertnewuser" />
+    <FunctionImportMapping FunctionImportName="selectlastapp" FunctionName="db_internshipModel.Store.selectlastapp">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="db_internshipModel.selectlastapp_Result">
+          <ScalarProperty Name="ap_applicationid" ColumnName="ap_applicationid" />
+          <ScalarProperty Name="ap_internshiptype" ColumnName="ap_internshiptype" />
+          <ScalarProperty Name="ap_companyname" ColumnName="ap_companyname" />
+          <ScalarProperty Name="ap_companyaddress" ColumnName="ap_companyaddress" />
+          <ScalarProperty Name="ap_companyphonenumber" ColumnName="ap_companyphonenumber" />
+          <ScalarProperty Name="ap_companymail" ColumnName="ap_companymail" />
+          <ScalarProperty Name="ap_startingdate" ColumnName="ap_startingdate" />
+          <ScalarProperty Name="ap_enddate" ColumnName="ap_enddate" />
+          <ScalarProperty Name="ap_workingday" ColumnName="ap_workingday" />
+          <ScalarProperty Name="ap_documentbycompany" ColumnName="ap_documentbycompany" />
+          <ScalarProperty Name="ap_managername" ColumnName="ap_managername" />
+          <ScalarProperty Name="ap_managerlastname" ColumnName="ap_managerlastname" />
+          <ScalarProperty Name="ap_managermail" ColumnName="ap_managermail" />
+          <ScalarProperty Name="ap_managertitle" ColumnName="ap_managertitle" />
+          <ScalarProperty Name="ap_status" ColumnName="ap_status" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="selectlastinternship" FunctionName="db_internshipModel.Store.selectlastinternship">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="db_internshipModel.selectlastinternship_Result">
+          <ScalarProperty Name="i_internshipid" ColumnName="i_internshipid" />
+          <ScalarProperty Name="i_internshiptype" ColumnName="i_internshiptype" />
+          <ScalarProperty Name="i_companyname" ColumnName="i_companyname" />
+          <ScalarProperty Name="i_companyaddress" ColumnName="i_companyaddress" />
+          <ScalarProperty Name="i_companyphonenumber" ColumnName="i_companyphonenumber" />
+          <ScalarProperty Name="i_companymail" ColumnName="i_companymail" />
+          <ScalarProperty Name="i_startingdate" ColumnName="i_startingdate" />
+          <ScalarProperty Name="i_enddate" ColumnName="i_enddate" />
+          <ScalarProperty Name="i_workingday" ColumnName="i_workingday" />
+          <ScalarProperty Name="i_documentbycompany" ColumnName="i_documentbycompany" />
+          <ScalarProperty Name="i_managername" ColumnName="i_managername" />
+          <ScalarProperty Name="i_managerlastname" ColumnName="i_managerlastname" />
+          <ScalarProperty Name="i_managermail" ColumnName="i_managermail" />
+          <ScalarProperty Name="i_managertitle" ColumnName="i_managertitle" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="selectlastuser" FunctionName="db_internshipModel.Store.selectlastuser">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="db_internshipModel.selectlastuser_Result">
+          <ScalarProperty Name="u_userid" ColumnName="u_userid" />
+          <ScalarProperty Name="u_username" ColumnName="u_username" />
+          <ScalarProperty Name="u_password" ColumnName="u_password" />
+          <ScalarProperty Name="u_mail" ColumnName="u_mail" />
+          <ScalarProperty Name="u_authorizationtype" ColumnName="u_authorizationtype" />
+          <ScalarProperty Name="u_lastverificationcode" ColumnName="u_lastverificationcode" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="db_internshipModel.Store.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="db_internshipModel.Store.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="db_internshipModel.Store.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="db_internshipModel.Store.sp_helpdiagramdefinition">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="db_internshipModel.sp_helpdiagramdefinition_Result">
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="db_internshipModel.Store.sp_helpdiagrams">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="db_internshipModel.sp_helpdiagrams_Result">
+          <ScalarProperty Name="Database" ColumnName="Database" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="db_internshipModel.Store.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="db_internshipModel.Store.sp_upgraddiagrams" />
+    <FunctionImportMapping FunctionImportName="updatefaculty" FunctionName="db_internshipModel.Store.updatefaculty" />
+  </EntityContainerMapping>
+</Mapping>

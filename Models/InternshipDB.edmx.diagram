@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2ecbef1287684e889bdd8e6982bf11fd" Name="Diagram1">
+        <EntityTypeShape EntityType="db_internshipModel.sysdiagram" Width="1.5" PointX="7.75" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_internshipModel.tbl_application" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_internshipModel.tbl_department" Width="1.5" PointX="0.75" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_internshipModel.tbl_internship" Width="1.5" PointX="0.75" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_internshipModel.tbl_report" Width="1.5" PointX="5.75" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_internshipModel.tbl_student" Width="1.5" PointX="3" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_internshipModel.tbl_user" Width="1.5" PointX="3.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_internshipModel.tbl_academician" Width="1.5" PointX="6" PointY="6.125" IsExpanded="true" />
+        <AssociationConnector Association="db_internshipModel.FK_tbl_student_tbl_application" ManuallyRouted="false" />
+        <AssociationConnector Association="db_internshipModel.FK_tbl_academician_tbl_department1" ManuallyRouted="false" />
+        <AssociationConnector Association="db_internshipModel.FK_tbl_student_tbl_department" ManuallyRouted="false" />
+        <AssociationConnector Association="db_internshipModel.FK_tbl_student_tbl_internship" ManuallyRouted="false" />
+        <AssociationConnector Association="db_internshipModel.FK_tbl_student_tbl_internship1" ManuallyRouted="false" />
+        <AssociationConnector Association="db_internshipModel.FK_tbl_report_tbl_report" ManuallyRouted="false" />
+        <AssociationConnector Association="db_internshipModel.FK_tbl_student_tbl_user" ManuallyRouted="false" />
+        <AssociationConnector Association="db_internshipModel.FK_tbl_academician_tbl_user" ManuallyRouted="false" />
+        <AssociationConnector Association="db_internshipModel.FK_tbl_report_tbl_report1" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

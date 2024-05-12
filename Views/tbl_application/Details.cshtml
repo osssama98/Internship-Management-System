@@ -1,0 +1,130 @@
+﻿@model InternshipManagementSystem.Models.tbl_application
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tbl_application</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ap_internshiptype)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ap_internshiptype)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ap_companyname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ap_companyname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ap_companyaddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ap_companyaddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ap_companyphonenumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ap_companyphonenumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ap_companymail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ap_companymail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ap_startingdate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ap_startingdate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ap_enddate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ap_enddate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ap_workingday)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ap_workingday)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ap_documentbycompany)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ap_documentbycompany)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ap_managername)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ap_managername)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ap_managerlastname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ap_managerlastname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ap_managermail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ap_managermail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ap_managertitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ap_managertitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ap_status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ap_status)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ap_applicationid }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,39 @@
+﻿<Properties StartupConfiguration="{0D7715A4-E7AD-42A9-8A33-B4A1C1D68220}|">
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.InternshipManagementSystem PreferredExecutionTarget="/Applications/Apps/Google Chrome.app" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Content/bootstrap.css">
+    <Files>
+      <File FileName="Controllers/HomeController.cs" Line="1" Column="1" />
+      <File FileName="Controllers/tbl_applicationController.cs" Line="1" Column="1" />
+      <File FileName="Content/bootstrap-theme.css" Line="1" Column="1" />
+      <File FileName="Content/bootstrap.css" Line="1" Column="1" />
+      <File FileName="Views/Home/Mainpage.cshtml" Line="19" Column="1" />
+      <File FileName="Content/bootstrap-theme.min.css.map" Line="1" Column="1" />
+      <File FileName="Content/bootstrap-theme.min.css" Line="1" Column="1" />
+      <File FileName="Content/bootstrap-theme.css.map" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="InternshipManagementSystem" expanded="True">
+            <Node name="InternshipManagementSystem" expanded="True">
+              <Node name="Content" expanded="True">
+                <Node name="bootstrap.css" selected="True" />
+              </Node>
+              <Node name="Controllers" expanded="True" />
+              <Node name="fonts" expanded="True" />
+              <Node name="Views" expanded="True">
+                <Node name="Home" expanded="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+</Properties>

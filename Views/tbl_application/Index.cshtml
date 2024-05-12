@@ -1,0 +1,114 @@
+﻿@model IEnumerable<InternshipManagementSystem.Models.tbl_application>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ap_internshiptype)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ap_companyname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ap_companyaddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ap_companyphonenumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ap_companymail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ap_startingdate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ap_enddate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ap_workingday)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ap_documentbycompany)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ap_managername)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ap_managerlastname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ap_managermail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ap_managertitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ap_status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ap_studentdepartment)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ap_internshiptype)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ap_companyname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ap_companyaddress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ap_companyphonenumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ap_companymail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ap_startingdate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ap_enddate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ap_workingday)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ap_documentbycompany)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ap_managername)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ap_managerlastname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ap_managermail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ap_managertitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ap_status)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ap_applicationid }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ap_applicationid }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ap_applicationid })
+        </td>
+    </tr>
+}
+
+</table>

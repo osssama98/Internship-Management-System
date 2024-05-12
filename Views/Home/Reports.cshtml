@@ -1,0 +1,87 @@
+﻿@model IEnumerable<InternshipManagementSystem.Models.tbl_report>
+
+@{
+    ViewBag.Title = "Reports";
+    Layout = null;
+}
+
+
+
+
+<!DOCTYPE html>
+<html>
+<title>Main Page</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<body>
+    <div class="w3-sidebar w3-light-grey w3-bar-block" style="width:15%">
+        <h3 class="w3-bar-item">@ViewBag.username</h3>
+        <a href="~/Home/Usermain?username=@ViewBag.username?departmentid=@ViewBag.departmentid" class="w3-bar-item w3-button">Main Page</a>
+        <a href="~/Home/Applications?departmentid=@ViewBag.departmentid" class="w3-bar-item w3-button">Internship Applications</a>
+        <a href="~/Home/Reports?departmentid=@ViewBag.departmentid" class="w3-bar-item w3-button">Reports</a>
+        <a href="~/Home/Userlogin" class="w3-bar-item w3-button">Exit</a>
+    </div>
+
+    <div style="margin-left:15%">
+
+        <div class="w3-container w3-teal">
+            <h1>Internship Reports</h1>
+        </div>
+        <div class="w3-container" style="overflow:auto">
+
+
+
+            <table class="table">
+                <tr>
+                    <th>
+                        Report ID
+                    </th>
+                    <th>
+                        Student Number
+                    </th>
+                    <th>
+                        Report Location
+                    </th>
+                    <th>
+                        Report Date
+                    </th>
+
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.r_id)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.r_studennumber)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.r_reportloc)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.r_date)
+                        </td>
+                        <td>
+                            <div>
+                                @Html.BeginForm("Reports", "Home", new { reportloc = item.r_reportloc, departmentid = item.r_departmentid }, FormMethod.Post){
+
+                                <input type="submit" name="open" value="Open" />
+                                }
+                            </div>
+
+                        </td>
+
+                    </tr>
+                }
+
+            </table>
+        </div>
+
+    </div>
+</body>
+</html>
+
+

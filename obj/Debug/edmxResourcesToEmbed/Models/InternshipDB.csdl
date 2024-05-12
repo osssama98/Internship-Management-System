@@ -1,0 +1,462 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="db_internshipModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="tbl_application">
+    <Key>
+      <PropertyRef Name="ap_applicationid" />
+    </Key>
+    <Property Name="ap_applicationid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ap_internshiptype" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ap_companyname" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ap_companyaddress" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ap_companyphonenumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ap_companymail" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ap_startingdate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="ap_enddate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="ap_workingday" Type="Byte" Nullable="false" />
+    <Property Name="ap_documentbycompany" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="ap_managername" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ap_managerlastname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ap_managermail" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ap_managertitle" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ap_status" Type="Boolean" />
+    <NavigationProperty Name="tbl_student" Relationship="Self.FK_tbl_student_tbl_application" FromRole="tbl_application" ToRole="tbl_student" />
+    <Property Name="ap_studentdepartment" Type="Int32" />
+  </EntityType>
+  <EntityType Name="tbl_department">
+    <Key>
+      <PropertyRef Name="d_departmentid" />
+    </Key>
+    <Property Name="d_departmentid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="d_departmentname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="d_facultyname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="tbl_academician" Relationship="Self.FK_tbl_academician_tbl_department1" FromRole="tbl_department" ToRole="tbl_academician" />
+    <NavigationProperty Name="tbl_student" Relationship="Self.FK_tbl_student_tbl_department" FromRole="tbl_department" ToRole="tbl_student" />
+  </EntityType>
+  <EntityType Name="tbl_internship">
+    <Key>
+      <PropertyRef Name="i_internshipid" />
+    </Key>
+    <Property Name="i_internshipid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="i_internshiptype" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="i_companyname" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="i_companyaddress" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="i_companyphonenumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="i_companymail" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="i_startingdate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="i_enddate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="i_workingday" Type="Byte" Nullable="false" />
+    <Property Name="i_documentbycompany" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="i_managername" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="i_managerlastname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="i_managermail" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="i_managertitle" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tbl_student" Relationship="Self.FK_tbl_student_tbl_internship" FromRole="tbl_internship" ToRole="tbl_student" />
+    <NavigationProperty Name="tbl_student1" Relationship="Self.FK_tbl_student_tbl_internship1" FromRole="tbl_internship" ToRole="tbl_student" />
+    <Property Name="i_studentdepartment" Type="Int32" />
+    <NavigationProperty Name="tbl_report" Relationship="db_internshipModel.FK_tbl_report_tbl_report1" FromRole="tbl_internship" ToRole="tbl_report" />
+  </EntityType>
+  <EntityType Name="tbl_report">
+    <Key>
+      <PropertyRef Name="r_id" />
+    </Key>
+    <Property Name="r_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="r_studennumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="r_reportloc" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="r_date" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="tbl_report1" Relationship="Self.FK_tbl_report_tbl_report" FromRole="tbl_report" ToRole="tbl_report1" />
+    <NavigationProperty Name="tbl_report2" Relationship="Self.FK_tbl_report_tbl_report" FromRole="tbl_report1" ToRole="tbl_report" />
+    <Property Name="r_internshipid" Type="Int32" />
+    <NavigationProperty Name="tbl_internship" Relationship="db_internshipModel.FK_tbl_report_tbl_report1" FromRole="tbl_report" ToRole="tbl_internship" />
+    <Property Name="r_departmentid" Type="Int32" />
+  </EntityType>
+  <EntityType Name="tbl_student">
+    <Key>
+      <PropertyRef Name="s_studentnumber" />
+    </Key>
+    <Property Name="s_studentnumber" Type="Int32" Nullable="false" />
+    <Property Name="s_userid" Type="Int32" Nullable="false" />
+    <Property Name="s_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="s_lastname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="s_departmentid" Type="Int32" Nullable="false" />
+    <Property Name="s_internid" Type="Int32" Nullable="false" />
+    <Property Name="s_studyyear" Type="Int32" Nullable="false" />
+    <Property Name="s_semester" Type="Byte" Nullable="false" />
+    <Property Name="s_address" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="s_advisorname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="s_advisorid" Type="Int32" Nullable="false" />
+    <Property Name="s_idnumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="s_nationality" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="s_dateofbirth" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="s_photo" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="s_internid2" Type="Int32" />
+    <Property Name="s_applicationid" Type="Int32" />
+    <NavigationProperty Name="tbl_application" Relationship="Self.FK_tbl_student_tbl_application" FromRole="tbl_student" ToRole="tbl_application" />
+    <NavigationProperty Name="tbl_department" Relationship="Self.FK_tbl_student_tbl_department" FromRole="tbl_student" ToRole="tbl_department" />
+    <NavigationProperty Name="tbl_internship" Relationship="Self.FK_tbl_student_tbl_internship" FromRole="tbl_student" ToRole="tbl_internship" />
+    <NavigationProperty Name="tbl_internship1" Relationship="Self.FK_tbl_student_tbl_internship1" FromRole="tbl_student" ToRole="tbl_internship" />
+    <NavigationProperty Name="tbl_user" Relationship="Self.FK_tbl_student_tbl_user" FromRole="tbl_student" ToRole="tbl_user" />
+  </EntityType>
+  <EntityType Name="tbl_user">
+    <Key>
+      <PropertyRef Name="u_userid" />
+    </Key>
+    <Property Name="u_userid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="u_username" Type="String" MaxLength="32" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="u_password" Type="String" MaxLength="32" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="u_mail" Type="String" MaxLength="70" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="u_authorizationtype" Type="Byte" Nullable="false" />
+    <Property Name="u_lastverificationcode" Type="String" MaxLength="6" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="tbl_student" Relationship="Self.FK_tbl_student_tbl_user" FromRole="tbl_user" ToRole="tbl_student" />
+    <NavigationProperty Name="tbl_academician" Relationship="Self.FK_tbl_academician_tbl_user" FromRole="tbl_user" ToRole="tbl_academician" />
+  </EntityType>
+  <EntityType Name="tbl_academician">
+    <Key>
+      <PropertyRef Name="a_userid" />
+      <PropertyRef Name="a_lastname" />
+      <PropertyRef Name="a_name" />
+      <PropertyRef Name="a_departmentid" />
+    </Key>
+    <Property Name="a_userid" Type="Int32" Nullable="false" />
+    <Property Name="a_lastname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="a_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="a_departmentid" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="tbl_department" Relationship="Self.FK_tbl_academician_tbl_department1" FromRole="tbl_academician" ToRole="tbl_department" />
+    <NavigationProperty Name="tbl_user" Relationship="Self.FK_tbl_academician_tbl_user" FromRole="tbl_academician" ToRole="tbl_user" />
+  </EntityType>
+  <Association Name="FK_tbl_student_tbl_application">
+    <End Role="tbl_application" Type="Self.tbl_application" Multiplicity="0..1" />
+    <End Role="tbl_student" Type="Self.tbl_student" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_application">
+        <PropertyRef Name="ap_applicationid" />
+      </Principal>
+      <Dependent Role="tbl_student">
+        <PropertyRef Name="s_applicationid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_academician_tbl_department1">
+    <End Role="tbl_department" Type="Self.tbl_department" Multiplicity="1" />
+    <End Role="tbl_academician" Type="Self.tbl_academician" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_department">
+        <PropertyRef Name="d_departmentid" />
+      </Principal>
+      <Dependent Role="tbl_academician">
+        <PropertyRef Name="a_departmentid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_student_tbl_department">
+    <End Role="tbl_department" Type="Self.tbl_department" Multiplicity="1" />
+    <End Role="tbl_student" Type="Self.tbl_student" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_department">
+        <PropertyRef Name="d_departmentid" />
+      </Principal>
+      <Dependent Role="tbl_student">
+        <PropertyRef Name="s_departmentid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_student_tbl_internship">
+    <End Role="tbl_internship" Type="Self.tbl_internship" Multiplicity="1" />
+    <End Role="tbl_student" Type="Self.tbl_student" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_internship">
+        <PropertyRef Name="i_internshipid" />
+      </Principal>
+      <Dependent Role="tbl_student">
+        <PropertyRef Name="s_internid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_student_tbl_internship1">
+    <End Role="tbl_internship" Type="Self.tbl_internship" Multiplicity="0..1" />
+    <End Role="tbl_student" Type="Self.tbl_student" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_internship">
+        <PropertyRef Name="i_internshipid" />
+      </Principal>
+      <Dependent Role="tbl_student">
+        <PropertyRef Name="s_internid2" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_report_tbl_report">
+    <End Role="tbl_report" Type="Self.tbl_report" Multiplicity="1" />
+    <End Role="tbl_report1" Type="Self.tbl_report" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_report">
+        <PropertyRef Name="r_id" />
+      </Principal>
+      <Dependent Role="tbl_report1">
+        <PropertyRef Name="r_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_student_tbl_user">
+    <End Role="tbl_user" Type="Self.tbl_user" Multiplicity="1" />
+    <End Role="tbl_student" Type="Self.tbl_student" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_user">
+        <PropertyRef Name="u_userid" />
+      </Principal>
+      <Dependent Role="tbl_student">
+        <PropertyRef Name="s_userid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_academician_tbl_user">
+    <End Role="tbl_user" Type="Self.tbl_user" Multiplicity="1" />
+    <End Role="tbl_academician" Type="Self.tbl_academician" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_user">
+        <PropertyRef Name="u_userid" />
+      </Principal>
+      <Dependent Role="tbl_academician">
+        <PropertyRef Name="a_userid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="db_internshipEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="tbl_application" EntityType="Self.tbl_application" />
+    <EntitySet Name="tbl_department" EntityType="Self.tbl_department" />
+    <EntitySet Name="tbl_internship" EntityType="Self.tbl_internship" />
+    <EntitySet Name="tbl_report" EntityType="Self.tbl_report" />
+    <EntitySet Name="tbl_student" EntityType="Self.tbl_student" />
+    <EntitySet Name="tbl_user" EntityType="Self.tbl_user" />
+    <EntitySet Name="tbl_academician" EntityType="Self.tbl_academician" />
+    <AssociationSet Name="FK_tbl_student_tbl_application" Association="Self.FK_tbl_student_tbl_application">
+      <End Role="tbl_application" EntitySet="tbl_application" />
+      <End Role="tbl_student" EntitySet="tbl_student" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_academician_tbl_department1" Association="Self.FK_tbl_academician_tbl_department1">
+      <End Role="tbl_department" EntitySet="tbl_department" />
+      <End Role="tbl_academician" EntitySet="tbl_academician" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_student_tbl_department" Association="Self.FK_tbl_student_tbl_department">
+      <End Role="tbl_department" EntitySet="tbl_department" />
+      <End Role="tbl_student" EntitySet="tbl_student" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_student_tbl_internship" Association="Self.FK_tbl_student_tbl_internship">
+      <End Role="tbl_internship" EntitySet="tbl_internship" />
+      <End Role="tbl_student" EntitySet="tbl_student" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_student_tbl_internship1" Association="Self.FK_tbl_student_tbl_internship1">
+      <End Role="tbl_internship" EntitySet="tbl_internship" />
+      <End Role="tbl_student" EntitySet="tbl_student" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_report_tbl_report" Association="Self.FK_tbl_report_tbl_report">
+      <End Role="tbl_report" EntitySet="tbl_report" />
+      <End Role="tbl_report1" EntitySet="tbl_report" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_student_tbl_user" Association="Self.FK_tbl_student_tbl_user">
+      <End Role="tbl_user" EntitySet="tbl_user" />
+      <End Role="tbl_student" EntitySet="tbl_student" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_academician_tbl_user" Association="Self.FK_tbl_academician_tbl_user">
+      <End Role="tbl_user" EntitySet="tbl_user" />
+      <End Role="tbl_academician" EntitySet="tbl_academician" />
+    </AssociationSet>
+    <FunctionImport Name="insertnewacademician">
+      <Parameter Name="userid" Mode="In" Type="Int32" />
+      <Parameter Name="lastname" Mode="In" Type="String" />
+      <Parameter Name="name" Mode="In" Type="String" />
+      <Parameter Name="departmentid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="insertnewapplication">
+      <Parameter Name="internshiptype" Mode="In" Type="String" />
+      <Parameter Name="companyname" Mode="In" Type="String" />
+      <Parameter Name="companyaddress" Mode="In" Type="String" />
+      <Parameter Name="companyphonenumber" Mode="In" Type="String" />
+      <Parameter Name="companymail" Mode="In" Type="String" />
+      <Parameter Name="startingdate" Mode="In" Type="DateTime" />
+      <Parameter Name="enddate" Mode="In" Type="DateTime" />
+      <Parameter Name="workingday" Mode="In" Type="Byte" />
+      <Parameter Name="documentbycompany" Mode="In" Type="Binary" />
+      <Parameter Name="managername" Mode="In" Type="String" />
+      <Parameter Name="managerlastname" Mode="In" Type="String" />
+      <Parameter Name="managermail" Mode="In" Type="String" />
+      <Parameter Name="managertitle" Mode="In" Type="String" />
+      <Parameter Name="status" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="insertnewdepartment">
+      <Parameter Name="departmentname" Mode="In" Type="String" />
+      <Parameter Name="facultyname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="insertnewinternship">
+      <Parameter Name="internshiptype" Mode="In" Type="String" />
+      <Parameter Name="companyname" Mode="In" Type="String" />
+      <Parameter Name="companyaddress" Mode="In" Type="String" />
+      <Parameter Name="companyphonenumber" Mode="In" Type="String" />
+      <Parameter Name="companymail" Mode="In" Type="String" />
+      <Parameter Name="startingdate" Mode="In" Type="DateTime" />
+      <Parameter Name="enddate" Mode="In" Type="DateTime" />
+      <Parameter Name="workingday" Mode="In" Type="Byte" />
+      <Parameter Name="documentbycompany" Mode="In" Type="Binary" />
+      <Parameter Name="managername" Mode="In" Type="String" />
+      <Parameter Name="managerlastname" Mode="In" Type="String" />
+      <Parameter Name="managermail" Mode="In" Type="String" />
+      <Parameter Name="managertitle" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="insertnewstudent">
+      <Parameter Name="studentnumber" Mode="In" Type="Int32" />
+      <Parameter Name="userid" Mode="In" Type="Int32" />
+      <Parameter Name="name" Mode="In" Type="String" />
+      <Parameter Name="lastname" Mode="In" Type="String" />
+      <Parameter Name="departmentid" Mode="In" Type="Int32" />
+      <Parameter Name="internid" Mode="In" Type="Int32" />
+      <Parameter Name="studyyear" Mode="In" Type="Int32" />
+      <Parameter Name="semester" Mode="In" Type="Byte" />
+      <Parameter Name="address" Mode="In" Type="String" />
+      <Parameter Name="advisorname" Mode="In" Type="String" />
+      <Parameter Name="advisorid" Mode="In" Type="Int32" />
+      <Parameter Name="idnumber" Mode="In" Type="String" />
+      <Parameter Name="nationality" Mode="In" Type="String" />
+      <Parameter Name="dateofbirth" Mode="In" Type="DateTime" />
+      <Parameter Name="photo" Mode="In" Type="Binary" />
+      <Parameter Name="internid2" Mode="In" Type="Int32" />
+      <Parameter Name="applicationid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="insertnewstudent2">
+      <Parameter Name="studentnumber" Mode="In" Type="Int32" />
+      <Parameter Name="userid" Mode="In" Type="Int32" />
+      <Parameter Name="name" Mode="In" Type="String" />
+      <Parameter Name="lastname" Mode="In" Type="String" />
+      <Parameter Name="departmentid" Mode="In" Type="Int32" />
+      <Parameter Name="internid" Mode="In" Type="Int32" />
+      <Parameter Name="studyyear" Mode="In" Type="Int32" />
+      <Parameter Name="semester" Mode="In" Type="Byte" />
+      <Parameter Name="address" Mode="In" Type="String" />
+      <Parameter Name="advisorname" Mode="In" Type="String" />
+      <Parameter Name="advisorid" Mode="In" Type="Int32" />
+      <Parameter Name="idnumber" Mode="In" Type="String" />
+      <Parameter Name="nationality" Mode="In" Type="String" />
+      <Parameter Name="dateofbirth" Mode="In" Type="DateTime" />
+      <Parameter Name="photo" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="insertnewuser">
+      <Parameter Name="username" Mode="In" Type="String" />
+      <Parameter Name="password" Mode="In" Type="String" />
+      <Parameter Name="mail" Mode="In" Type="String" />
+      <Parameter Name="authorizationtype" Mode="In" Type="Byte" />
+    </FunctionImport>
+    <FunctionImport Name="selectlastapp" ReturnType="Collection(db_internshipModel.selectlastapp_Result)" />
+    <FunctionImport Name="selectlastinternship" ReturnType="Collection(db_internshipModel.selectlastinternship_Result)" />
+    <FunctionImport Name="selectlastuser" ReturnType="Collection(db_internshipModel.selectlastuser_Result)" />
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(db_internshipModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(db_internshipModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+    <FunctionImport Name="updatefaculty">
+      <Parameter Name="departmentid" Mode="In" Type="Int32" />
+      <Parameter Name="facultyname" Mode="In" Type="String" />
+    </FunctionImport>
+    <AssociationSet Name="FK_tbl_report_tbl_report1" Association="db_internshipModel.FK_tbl_report_tbl_report1">
+      <End Role="tbl_internship" EntitySet="tbl_internship" />
+      <End Role="tbl_report" EntitySet="tbl_report" />
+    </AssociationSet>
+  </EntityContainer>
+  <ComplexType Name="selectlastapp_Result">
+    <Property Type="Int32" Name="ap_applicationid" Nullable="false" />
+    <Property Type="String" Name="ap_internshiptype" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="ap_companyname" Nullable="false" MaxLength="60" />
+    <Property Type="String" Name="ap_companyaddress" Nullable="false" MaxLength="150" />
+    <Property Type="String" Name="ap_companyphonenumber" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="ap_companymail" Nullable="false" MaxLength="70" />
+    <Property Type="DateTime" Name="ap_startingdate" Nullable="false" />
+    <Property Type="DateTime" Name="ap_enddate" Nullable="false" />
+    <Property Type="Byte" Name="ap_workingday" Nullable="false" />
+    <Property Type="Binary" Name="ap_documentbycompany" Nullable="true" />
+    <Property Type="String" Name="ap_managername" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="ap_managerlastname" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="ap_managermail" Nullable="false" MaxLength="70" />
+    <Property Type="String" Name="ap_managertitle" Nullable="true" MaxLength="50" />
+    <Property Type="Boolean" Name="ap_status" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="selectlastinternship_Result">
+    <Property Type="Int32" Name="i_internshipid" Nullable="false" />
+    <Property Type="String" Name="i_internshiptype" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="i_companyname" Nullable="false" MaxLength="60" />
+    <Property Type="String" Name="i_companyaddress" Nullable="false" MaxLength="150" />
+    <Property Type="String" Name="i_companyphonenumber" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="i_companymail" Nullable="false" MaxLength="70" />
+    <Property Type="DateTime" Name="i_startingdate" Nullable="false" />
+    <Property Type="DateTime" Name="i_enddate" Nullable="false" />
+    <Property Type="Byte" Name="i_workingday" Nullable="false" />
+    <Property Type="Binary" Name="i_documentbycompany" Nullable="true" />
+    <Property Type="String" Name="i_managername" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="i_managerlastname" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="i_managermail" Nullable="false" MaxLength="70" />
+    <Property Type="String" Name="i_managertitle" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="selectlastuser_Result">
+    <Property Type="Int32" Name="u_userid" Nullable="false" />
+    <Property Type="String" Name="u_username" Nullable="false" MaxLength="32" />
+    <Property Type="String" Name="u_password" Nullable="false" MaxLength="32" />
+    <Property Type="String" Name="u_mail" Nullable="false" MaxLength="70" />
+    <Property Type="Byte" Name="u_authorizationtype" Nullable="false" />
+    <Property Type="String" Name="u_lastverificationcode" Nullable="true" MaxLength="6" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+  <Association Name="FK_tbl_report_tbl_report1">
+    <End Type="db_internshipModel.tbl_internship" Role="tbl_internship" Multiplicity="0..1" />
+    <End Type="db_internshipModel.tbl_report" Role="tbl_report" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_internship">
+        <PropertyRef Name="i_internshipid" />
+      </Principal>
+      <Dependent Role="tbl_report">
+        <PropertyRef Name="r_internshipid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

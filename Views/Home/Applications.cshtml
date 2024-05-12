@@ -1,0 +1,162 @@
+﻿@model IEnumerable<InternshipManagementSystem.Models.tbl_application>
+
+@{
+    ViewBag.Title = "Applications";
+    Layout = null;
+}
+
+
+   
+
+<!DOCTYPE html>
+<html>
+<title>Main Page</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<body>
+
+
+    <div class="w3-sidebar w3-light-grey w3-bar-block" style="width:15%">
+        <h3 class="w3-bar-item">@ViewBag.username</h3>
+        <a href="~/Home/Usermain?username=@ViewBag.username" class="w3-bar-item w3-button">Main Page</a>
+        <a href="~/Home/Applications?departmentid=@ViewBag.departmentid" class="w3-bar-item w3-button">Internship Applications</a>
+        <a href="~/Home/Reports?departmentid=@ViewBag.departmentid" class="w3-bar-item w3-button">Reports</a>
+        <a href="~/Home/Userlogin" class="w3-bar-item w3-button">Exit</a>
+    </div>
+
+
+    <div style="margin-left:15%">
+
+        <div class="w3-container w3-teal">
+            <h1>Internship Applications</h1>
+        </div>
+        <div class="w3-container" style="overflow:auto">
+
+
+
+            <table class="table">
+                <tr>
+                    <th>
+                        Internship Type
+
+                    </th>
+                    <th>
+                        Company Name
+
+                    </th>
+                    <th>
+                        Company Address
+
+                    </th>
+                    <th>
+                        Company Phone Number
+
+                    </th>
+                    <th>
+                        Company Mail
+
+                    </th>
+                    <th>
+                        Starting Date
+
+                    </th>
+                    <th>
+                        End Date
+
+                    </th>
+                    <th>
+                        Working Day
+
+                    </th>
+                    <th>
+                        Document Location
+                    </th>
+                    <th>
+                        Manager Name
+                    </th>
+                    <th>
+                        Manager Lastname
+                    </th>
+                    <th>
+                        Manager Mail
+                    </th>
+                    <th>
+                        Manager Title
+                    </th>
+                    <th>
+                        Application Status
+                    </th>
+                    <th>
+                        Student Department ID
+                    </th>
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ap_internshiptype)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ap_companyname)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ap_companyaddress)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ap_companyphonenumber)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ap_companymail)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ap_startingdate)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ap_enddate)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ap_workingday)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ap_documentbycompany)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ap_managername)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ap_managerlastname)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ap_managermail)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ap_managertitle)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ap_status)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ap_studentdepartment)
+                        </td>
+
+                        <td>
+                            <div>
+                                @Html.BeginForm("Applications", "Home", new { appid = item.ap_applicationid }, FormMethod.Post){
+
+                                <input type="submit" name="accept" value="Accept" />
+                                }
+                            </div>
+                        </td>
+
+                    </tr>
+                }
+
+            </table>
+        </div>
+
+    </div>
+</body>
+</html>
+

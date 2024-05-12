@@ -1,0 +1,386 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="db_internshipModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'db_internship.dbo.tbl_academician' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="tbl_academician">
+    <Key>
+      <PropertyRef Name="a_userid" />
+      <PropertyRef Name="a_lastname" />
+      <PropertyRef Name="a_name" />
+      <PropertyRef Name="a_departmentid" />
+    </Key>
+    <Property Name="a_userid" Type="int" Nullable="false" />
+    <Property Name="a_lastname" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="a_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="a_departmentid" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_application">
+    <Key>
+      <PropertyRef Name="ap_applicationid" />
+    </Key>
+    <Property Name="ap_applicationid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ap_internshiptype" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="ap_companyname" Type="varchar" MaxLength="60" Nullable="false" />
+    <Property Name="ap_companyaddress" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="ap_companyphonenumber" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="ap_companymail" Type="varchar" MaxLength="70" Nullable="false" />
+    <Property Name="ap_startingdate" Type="date" Nullable="false" />
+    <Property Name="ap_enddate" Type="date" Nullable="false" />
+    <Property Name="ap_workingday" Type="tinyint" Nullable="false" />
+    <Property Name="ap_documentbycompany" Type="varbinary(max)" />
+    <Property Name="ap_managername" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ap_managerlastname" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ap_managermail" Type="varchar" MaxLength="70" Nullable="false" />
+    <Property Name="ap_managertitle" Type="varchar" MaxLength="50" />
+    <Property Name="ap_status" Type="bit" />
+    <Property Name="ap_studentdepartment" Type="int" />
+  </EntityType>
+  <EntityType Name="tbl_department">
+    <Key>
+      <PropertyRef Name="d_departmentid" />
+    </Key>
+    <Property Name="d_departmentid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="d_departmentname" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="d_facultyname" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_internship">
+    <Key>
+      <PropertyRef Name="i_internshipid" />
+    </Key>
+    <Property Name="i_internshipid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="i_internshiptype" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="i_companyname" Type="varchar" MaxLength="60" Nullable="false" />
+    <Property Name="i_companyaddress" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="i_companyphonenumber" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="i_companymail" Type="varchar" MaxLength="70" Nullable="false" />
+    <Property Name="i_startingdate" Type="date" Nullable="false" />
+    <Property Name="i_enddate" Type="date" Nullable="false" />
+    <Property Name="i_workingday" Type="tinyint" Nullable="false" />
+    <Property Name="i_documentbycompany" Type="varbinary(max)" />
+    <Property Name="i_managername" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="i_managerlastname" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="i_managermail" Type="varchar" MaxLength="70" Nullable="false" />
+    <Property Name="i_managertitle" Type="varchar" MaxLength="50" />
+    <Property Name="i_studentdepartment" Type="int" />
+  </EntityType>
+  <EntityType Name="tbl_report">
+    <Key>
+      <PropertyRef Name="r_id" />
+    </Key>
+    <Property Name="r_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="r_studennumber" Type="varchar" MaxLength="50" />
+    <Property Name="r_reportloc" Type="varchar" MaxLength="250" />
+    <Property Name="r_date" Type="date" />
+    <Property Name="r_internshipid" Type="int" />
+    <Property Name="r_departmentid" Type="int" />
+  </EntityType>
+  <EntityType Name="tbl_student">
+    <Key>
+      <PropertyRef Name="s_studentnumber" />
+    </Key>
+    <Property Name="s_studentnumber" Type="int" Nullable="false" />
+    <Property Name="s_userid" Type="int" Nullable="false" />
+    <Property Name="s_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="s_lastname" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="s_departmentid" Type="int" Nullable="false" />
+    <Property Name="s_internid" Type="int" Nullable="false" />
+    <Property Name="s_studyyear" Type="int" Nullable="false" />
+    <Property Name="s_semester" Type="tinyint" Nullable="false" />
+    <Property Name="s_address" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="s_advisorname" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="s_advisorid" Type="int" Nullable="false" />
+    <Property Name="s_idnumber" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="s_nationality" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="s_dateofbirth" Type="date" Nullable="false" />
+    <Property Name="s_photo" Type="varbinary(max)" />
+    <Property Name="s_internid2" Type="int" />
+    <Property Name="s_applicationid" Type="int" />
+  </EntityType>
+  <EntityType Name="tbl_user">
+    <Key>
+      <PropertyRef Name="u_userid" />
+    </Key>
+    <Property Name="u_userid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="u_username" Type="nchar" MaxLength="32" Nullable="false" />
+    <Property Name="u_password" Type="nchar" MaxLength="32" Nullable="false" />
+    <Property Name="u_mail" Type="nvarchar" MaxLength="70" Nullable="false" />
+    <Property Name="u_authorizationtype" Type="tinyint" Nullable="false" />
+    <Property Name="u_lastverificationcode" Type="nchar" MaxLength="6" />
+  </EntityType>
+  <Association Name="FK_tbl_academician_tbl_department1">
+    <End Role="tbl_department" Type="Self.tbl_department" Multiplicity="1" />
+    <End Role="tbl_academician" Type="Self.tbl_academician" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_department">
+        <PropertyRef Name="d_departmentid" />
+      </Principal>
+      <Dependent Role="tbl_academician">
+        <PropertyRef Name="a_departmentid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_academician_tbl_user">
+    <End Role="tbl_user" Type="Self.tbl_user" Multiplicity="1" />
+    <End Role="tbl_academician" Type="Self.tbl_academician" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_user">
+        <PropertyRef Name="u_userid" />
+      </Principal>
+      <Dependent Role="tbl_academician">
+        <PropertyRef Name="a_userid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_report_tbl_report">
+    <End Role="tbl_internship" Type="Self.tbl_internship" Multiplicity="0..1" />
+    <End Role="tbl_report" Type="Self.tbl_report" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_internship">
+        <PropertyRef Name="i_internshipid" />
+      </Principal>
+      <Dependent Role="tbl_report">
+        <PropertyRef Name="r_internshipid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_student_tbl_application">
+    <End Role="tbl_application" Type="Self.tbl_application" Multiplicity="0..1" />
+    <End Role="tbl_student" Type="Self.tbl_student" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_application">
+        <PropertyRef Name="ap_applicationid" />
+      </Principal>
+      <Dependent Role="tbl_student">
+        <PropertyRef Name="s_applicationid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_student_tbl_department">
+    <End Role="tbl_department" Type="Self.tbl_department" Multiplicity="1" />
+    <End Role="tbl_student" Type="Self.tbl_student" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_department">
+        <PropertyRef Name="d_departmentid" />
+      </Principal>
+      <Dependent Role="tbl_student">
+        <PropertyRef Name="s_departmentid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_student_tbl_internship">
+    <End Role="tbl_internship" Type="Self.tbl_internship" Multiplicity="1" />
+    <End Role="tbl_student" Type="Self.tbl_student" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_internship">
+        <PropertyRef Name="i_internshipid" />
+      </Principal>
+      <Dependent Role="tbl_student">
+        <PropertyRef Name="s_internid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_student_tbl_internship1">
+    <End Role="tbl_internship" Type="Self.tbl_internship" Multiplicity="0..1" />
+    <End Role="tbl_student" Type="Self.tbl_student" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_internship">
+        <PropertyRef Name="i_internshipid" />
+      </Principal>
+      <Dependent Role="tbl_student">
+        <PropertyRef Name="s_internid2" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_student_tbl_user">
+    <End Role="tbl_user" Type="Self.tbl_user" Multiplicity="1" />
+    <End Role="tbl_student" Type="Self.tbl_student" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_user">
+        <PropertyRef Name="u_userid" />
+      </Principal>
+      <Dependent Role="tbl_student">
+        <PropertyRef Name="s_userid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+  <Function Name="insertnewacademician" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="userid" Type="int" Mode="In" />
+    <Parameter Name="lastname" Type="nvarchar" Mode="In" />
+    <Parameter Name="name" Type="nvarchar" Mode="In" />
+    <Parameter Name="departmentid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="insertnewapplication" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="internshiptype" Type="varchar" Mode="In" />
+    <Parameter Name="companyname" Type="varchar" Mode="In" />
+    <Parameter Name="companyaddress" Type="varchar" Mode="In" />
+    <Parameter Name="companyphonenumber" Type="varchar" Mode="In" />
+    <Parameter Name="companymail" Type="varchar" Mode="In" />
+    <Parameter Name="startingdate" Type="date" Mode="In" />
+    <Parameter Name="enddate" Type="date" Mode="In" />
+    <Parameter Name="workingday" Type="tinyint" Mode="In" />
+    <Parameter Name="documentbycompany" Type="varbinary(max)" Mode="In" />
+    <Parameter Name="managername" Type="varchar" Mode="In" />
+    <Parameter Name="managerlastname" Type="varchar" Mode="In" />
+    <Parameter Name="managermail" Type="varchar" Mode="In" />
+    <Parameter Name="managertitle" Type="varchar" Mode="In" />
+    <Parameter Name="status" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="insertnewdepartment" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="departmentname" Type="varchar" Mode="In" />
+    <Parameter Name="facultyname" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="insertnewinternship" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="internshiptype" Type="varchar" Mode="In" />
+    <Parameter Name="companyname" Type="varchar" Mode="In" />
+    <Parameter Name="companyaddress" Type="varchar" Mode="In" />
+    <Parameter Name="companyphonenumber" Type="varchar" Mode="In" />
+    <Parameter Name="companymail" Type="varchar" Mode="In" />
+    <Parameter Name="startingdate" Type="date" Mode="In" />
+    <Parameter Name="enddate" Type="date" Mode="In" />
+    <Parameter Name="workingday" Type="tinyint" Mode="In" />
+    <Parameter Name="documentbycompany" Type="varbinary(max)" Mode="In" />
+    <Parameter Name="managername" Type="varchar" Mode="In" />
+    <Parameter Name="managerlastname" Type="varchar" Mode="In" />
+    <Parameter Name="managermail" Type="varchar" Mode="In" />
+    <Parameter Name="managertitle" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="insertnewstudent" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="studentnumber" Type="int" Mode="In" />
+    <Parameter Name="userid" Type="int" Mode="In" />
+    <Parameter Name="name" Type="nvarchar" Mode="In" />
+    <Parameter Name="lastname" Type="nvarchar" Mode="In" />
+    <Parameter Name="departmentid" Type="int" Mode="In" />
+    <Parameter Name="internid" Type="int" Mode="In" />
+    <Parameter Name="studyyear" Type="int" Mode="In" />
+    <Parameter Name="semester" Type="tinyint" Mode="In" />
+    <Parameter Name="address" Type="nvarchar" Mode="In" />
+    <Parameter Name="advisorname" Type="nvarchar" Mode="In" />
+    <Parameter Name="advisorid" Type="int" Mode="In" />
+    <Parameter Name="idnumber" Type="nvarchar" Mode="In" />
+    <Parameter Name="nationality" Type="varchar" Mode="In" />
+    <Parameter Name="dateofbirth" Type="date" Mode="In" />
+    <Parameter Name="photo" Type="varbinary(max)" Mode="In" />
+    <Parameter Name="internid2" Type="int" Mode="In" />
+    <Parameter Name="applicationid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="insertnewstudent2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="studentnumber" Type="int" Mode="In" />
+    <Parameter Name="userid" Type="int" Mode="In" />
+    <Parameter Name="name" Type="nvarchar" Mode="In" />
+    <Parameter Name="lastname" Type="nvarchar" Mode="In" />
+    <Parameter Name="departmentid" Type="int" Mode="In" />
+    <Parameter Name="internid" Type="int" Mode="In" />
+    <Parameter Name="studyyear" Type="int" Mode="In" />
+    <Parameter Name="semester" Type="tinyint" Mode="In" />
+    <Parameter Name="address" Type="nvarchar" Mode="In" />
+    <Parameter Name="advisorname" Type="nvarchar" Mode="In" />
+    <Parameter Name="advisorid" Type="int" Mode="In" />
+    <Parameter Name="idnumber" Type="nvarchar" Mode="In" />
+    <Parameter Name="nationality" Type="varchar" Mode="In" />
+    <Parameter Name="dateofbirth" Type="date" Mode="In" />
+    <Parameter Name="photo" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="insertnewuser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="username" Type="nchar" Mode="In" />
+    <Parameter Name="password" Type="nchar" Mode="In" />
+    <Parameter Name="mail" Type="nvarchar" Mode="In" />
+    <Parameter Name="authorizationtype" Type="tinyint" Mode="In" />
+  </Function>
+  <Function Name="selectlastapp" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="selectlastinternship" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="selectlastuser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="updatefaculty" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="departmentid" Type="int" Mode="In" />
+    <Parameter Name="facultyname" Type="varchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="db_internshipModelStoreContainer">
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_application" EntityType="Self.tbl_application" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_department" EntityType="Self.tbl_department" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_internship" EntityType="Self.tbl_internship" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_report" EntityType="Self.tbl_report" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_student" EntityType="Self.tbl_student" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_user" EntityType="Self.tbl_user" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_academician" EntityType="Self.tbl_academician" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [tbl_academician].[a_userid] AS [a_userid], 
+    [tbl_academician].[a_lastname] AS [a_lastname], 
+    [tbl_academician].[a_name] AS [a_name], 
+    [tbl_academician].[a_departmentid] AS [a_departmentid]
+    FROM [dbo].[tbl_academician] AS [tbl_academician]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_tbl_academician_tbl_department1" Association="Self.FK_tbl_academician_tbl_department1">
+      <End Role="tbl_department" EntitySet="tbl_department" />
+      <End Role="tbl_academician" EntitySet="tbl_academician" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_academician_tbl_user" Association="Self.FK_tbl_academician_tbl_user">
+      <End Role="tbl_user" EntitySet="tbl_user" />
+      <End Role="tbl_academician" EntitySet="tbl_academician" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_report_tbl_report" Association="Self.FK_tbl_report_tbl_report">
+      <End Role="tbl_internship" EntitySet="tbl_internship" />
+      <End Role="tbl_report" EntitySet="tbl_report" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_student_tbl_application" Association="Self.FK_tbl_student_tbl_application">
+      <End Role="tbl_application" EntitySet="tbl_application" />
+      <End Role="tbl_student" EntitySet="tbl_student" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_student_tbl_department" Association="Self.FK_tbl_student_tbl_department">
+      <End Role="tbl_department" EntitySet="tbl_department" />
+      <End Role="tbl_student" EntitySet="tbl_student" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_student_tbl_internship" Association="Self.FK_tbl_student_tbl_internship">
+      <End Role="tbl_internship" EntitySet="tbl_internship" />
+      <End Role="tbl_student" EntitySet="tbl_student" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_student_tbl_internship1" Association="Self.FK_tbl_student_tbl_internship1">
+      <End Role="tbl_internship" EntitySet="tbl_internship" />
+      <End Role="tbl_student" EntitySet="tbl_student" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_student_tbl_user" Association="Self.FK_tbl_student_tbl_user">
+      <End Role="tbl_user" EntitySet="tbl_user" />
+      <End Role="tbl_student" EntitySet="tbl_student" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
